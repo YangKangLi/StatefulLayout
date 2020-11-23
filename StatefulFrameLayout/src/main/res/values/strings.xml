@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">StatefulFrameLayout</string>
+    <string name="default_loading_tips">加载中，请稍等...</string>
+    <string name="default_empty_tips">暂无数据</string>
+    <string name="default_error_tips">加载数据出错了</string>
+    <string name="default_network_error_tips">当前网络不可用，请稍等再试</string>
+</resources>

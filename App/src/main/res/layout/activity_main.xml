@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.yangkangli.x.ui.StatefulLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/stateful_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_show_common_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="通用错误" />
+
+        <Button
+            android:id="@+id/btn_show_network_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="网络错误" />
+
+    </LinearLayout>
+
+</com.github.yangkangli.x.ui.StatefulLayout>

@@ -1,0 +1,2 @@
+include ':StatefulFrameLayout', 'App'
+rootProject.name='XUI'

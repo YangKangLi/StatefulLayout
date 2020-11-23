@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Sample</string>
+    <string name="state_menu_content">显示内容</string>
+    <string name="state_menu_loading">显示加载中</string>
+    <string name="state_menu_empty">显示无数据</string>
+    <string name="state_menu_error">显示错误</string>
+    <string name="state_menu_network_error">显示网络错误</string>
+
+</resources>
