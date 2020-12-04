@@ -177,6 +177,16 @@ public class StatefulLayout extends FrameLayout {
     }
 
     /**
+     * 根据状态得到IStateView
+     *
+     * @param state
+     * @return
+     */
+    public IStateView getStateView(State state) {
+        return createAndAddStateView(state);
+    }
+
+    /**
      * 显示内容页面
      *
      * @param show true：显示；false：不显示
@@ -198,36 +208,40 @@ public class StatefulLayout extends FrameLayout {
         if (stateViewMap == null) {
             stateViewMap = new HashMap<>();
         }
-        IStateView stateView = null;
-        switch (state) {
-            // 加载页面
-            case LOADING:
-                if (iCreator != null) {
-                    stateView = iCreator.createLoadingView(context, this);
-                }
-                break;
-            // 错误页面
-            case ERROR:
-                if (iCreator != null) {
-                    stateView = iCreator.createErrorView(context, this);
-                }
-                break;
-            // 网络错误界面
-            case NETWORK_ERROR:
-                if (iCreator != null) {
-                    stateView = iCreator.createNetworkErrorView(context, this);
-                }
-                break;
-            // 数据为空界面
-            case EMPTY:
-                if (iCreator != null) {
-                    stateView = iCreator.createEmptyView(context, this);
-                }
-                break;
-        }
-        if (stateView != null) {
-            stateViewMap.put(state, stateView);
-            addView(stateView.onGetView());
+        IStateView stateView = stateViewMap.get(state);
+
+        if (stateView == null) {
+
+            switch (state) {
+                // 加载页面
+                case LOADING:
+                    if (iCreator != null) {
+                        stateView = iCreator.createLoadingView(context, this);
+                    }
+                    break;
+                // 错误页面
+                case ERROR:
+                    if (iCreator != null) {
+                        stateView = iCreator.createErrorView(context, this);
+                    }
+                    break;
+                // 网络错误界面
+                case NETWORK_ERROR:
+                    if (iCreator != null) {
+                        stateView = iCreator.createNetworkErrorView(context, this);
+                    }
+                    break;
+                // 数据为空界面
+                case EMPTY:
+                    if (iCreator != null) {
+                        stateView = iCreator.createEmptyView(context, this);
+                    }
+                    break;
+            }
+            if (stateView != null) {
+                stateViewMap.put(state, stateView);
+                addView(stateView.onGetView());
+            }
         }
         return stateView;
     }
